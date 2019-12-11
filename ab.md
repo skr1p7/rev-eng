@@ -17,4 +17,5 @@ $ sudo chmod +x ./1stcrackme
 ### Fair enough, let's run the binary using the follwing command:
 ```bash
 $ ./1stcrackme
+```
 ![out](img/out.png)

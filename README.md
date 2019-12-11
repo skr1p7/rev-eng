@@ -69,7 +69,7 @@ Note that how the **```ltrace```** utilility traces the **```strcmp```** calls a
 
 ![ltrace2](img/ltrace2.png)
 
-Notice how the string are getting compared again, so for the first **hellow** or the second password, our given input is compared with the e\hex value **0x1337**, for the second **hellow** or the third password,our given input is compared with the e\hex value **0x133337** let's make use of the web to convert this hexacdecimal to integer value:
+Notice how the string are getting compared again, so for the first **hellow** or the second password, our given input is compared with the hex value **0x1337**, for the second **hellow** or the third password,our given input is compared with the hex value **0x133337** let's make use of the web to convert this hexacdecimal to integer value:
 
 ![hex1](img/hex1.png)
 
@@ -78,7 +78,7 @@ Notice how the string are getting compared again, so for the first **hellow** or
 And we have come to know that **0x1337** is 4919 and **0x133337** is 1258295, let's try these decimal values as the password:
 ![badnews](img/badnews.png)
 
-What is up! The thing is that overthinking often messes up with the easiest routes, actually **0x1337** and **0x133337**is itself a string, let's try using these as strings:
+What is up! The thing is that overthinking often messes up with the easiest routes, actually **0x1337** and **0x133337** is itself a string, let's try using these as strings:
 ![success](img/success.png)
 There we go! Wooo 
 
@@ -112,7 +112,7 @@ $ strings ./2ndcrackme
 
 Interesting again! We have found the string **FEd0raGCH** quite suspicious, let's try to pass this as the password:
 
-[pass2wrong](img/pass2wrong.png)
+![pass2wrong](img/pass2wrong.png)
 
 Not again! But nothing to worry because **```ltrace```** the saviour is here to help us out, let's feed **hello** as the password argument: 
 
@@ -130,6 +130,7 @@ Success
 ```
 
 ![bruhmoment](img/bruhmoment)
+
 ### Bruh moment :3 We sucessfully cracked the 2nd binary
 
 ## ./3rdcrackme
@@ -165,7 +166,7 @@ $ strings ./3rdcrackme
 
 Interesting but suspicious! We have found the string **The password is: FEDORAPASSWORDGCI!**, definitely not so easy but let's try to pass this as the password:
 
-[pass3wrong](img/pass3.png)
+![pass3wrong](img/pass3.png)
 
 As expected! But **```ltrace```** is here once again, let's feed **hello** as the password argument: 
 
@@ -185,31 +186,31 @@ $ ./ghidraRun
 We need to take care of a few more things like how to start our code analysis, below are step by step screenshots of how to configure our project:
 
 1. First create a New Project and click on **Non-Shared Project** and click **Next**
-[ghidra](img/ghidra.png)
+![ghidra](img/ghidra.png)
 
 2. Next open up your file manager and drag-drop the binary on the project name that you specified, for me it is **3rdcrackme** as you can see in the screenshot below
 
-[feed](img/ghidrafeed.png)
+![feed](img/ghidrafeed.png)
 
 3. Up next we'll get a prompt if we wish to analyze this binary, which obviously has to be *Yes*
 
-[analyze](img/analyze.png)
+![analyze](img/analyze.png)
 
 4. Up next you'll be prompted with another **Analysis Options** window in which we will check mark the *Decompiler Parameter ID* for better analysis and click on *Analyze*
 
-[ID](img/ID.png)
+![ID](img/ID.png)
 
 5. Let's now look for the *main()* function, this can be found under the *Symbol Tree* window in the left hand side of the screen.
 
-[symboltree](img/symboltree.png)
+![symboltree](img/symboltree.png)
 
 6. Click on **main()** to get the decompiled code on the right side of the screen, here's what we get:
 
-[code](img/code.png)
+![code](img/code.png)
 
 Well the code is pretty simple and not very different than what we found in the **```ltrace```** of the binary. And this can lead to a Buffer Overflow! So let's try feeding a long input in the password prompt:
 
-[bof](img/bof.png)
+![bof](img/bof.png)
 
 ## Wow! That was freakin' awesome! We successfully cracked the third binary by actually exploiting a vulnerability in the code that lead to memory corruption as we used more memory than the memory allocated
 

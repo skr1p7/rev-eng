@@ -162,7 +162,7 @@ And we've come to know that we have to feed the password when prompted, let's tr
 $ strings ./3rdcrackme
 ```
 
-![3rdbing](img/3rdstrings.png)
+![3rdbing](img/secret.png)
 
 Interesting but suspicious! We have found the string **The password is: FEDORAPASSWORDGCI!**, definitely not so easy but let's try to pass this as the password:
 

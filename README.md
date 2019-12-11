@@ -120,7 +120,7 @@ Not again! But nothing to worry because **```ltrace```** the saviour is here to 
 $ ltrace ./2ndcrackme hello
 ```
 
-![2ndltrace](img/2ndltace.png)
+![2ndltrace](img/2ndltrace.png)
 
 And here we have found quite interesting, the 2nd binary is not supposed to be that easy to crack but still, let's try this **FEd0raGCIt@sk** as the password:
 
@@ -129,7 +129,7 @@ $ ./2ndcrackme FEd0raGCIt@sk
 Success
 ```
 
-![bruhmoment](img/bruhmoment)
+![bruhmoment](img/bruhmoment.png)
 
 ### Bruh moment :3 We sucessfully cracked the 2nd binary
 
@@ -162,7 +162,7 @@ And we've come to know that we have to feed the password when prompted, let's tr
 $ strings ./3rdcrackme
 ```
 
-![3rdbin](img/3rdstrings.png)
+![3rdbing](img/3rdstrings.png)
 
 Interesting but suspicious! We have found the string **The password is: FEDORAPASSWORDGCI!**, definitely not so easy but let's try to pass this as the password:
 
@@ -174,7 +174,7 @@ As expected! But **```ltrace```** is here once again, let's feed **hello** as th
 $ ltrace ./3rdcrackme hello
 ```
 
-![3rdltrace](img/3rdltace.png)
+![3rdltrace](img/3rdltrace.png)
 
 Okayyy.....So we have got nothing interesting but something very interesting this time! We can notice a **```memcmp```** function in use which basically compares the size of two buffers passed to it as the parameters, it takes **three parameters**, the first two parameter are the pointers to the memory that we want to compare and the third parameter is the size of that memory in bytes. For better understanding of the code, let's fire up [Ghidra SRE Tool](https://ghidra-sre.org/) 
 Installation can be found at [this](https://www.youtube.com/watch?v=OJlKtRgC68U) link 
